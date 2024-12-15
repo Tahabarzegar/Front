@@ -1,55 +1,72 @@
 @if (action=='list') {
 
-    @if (data && data.length!=0) {
-        <div>
-            <button (click)="addClick()">افزودن</button>
-        </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>شناسه</th>
-                    <th>عنوان</th>
-                    <th>نویسنده</th>
-                    <th>قیمت</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (item of data; track $index) {
-                    
-                    <tr>
-                        <td>{{item.id}}</td>
-                        <td>{{item.title}}</td>
-                        <td>{{item.writer}}</td>
-                        <td>{{item.price}}</td>
-                        <td>
-                            <button (click)="editClicK(item)">ویرایش</button>
-                            <button>حذف</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    @else {
-        <div>لطفا کمی صبر کنید</div>
-    }
+@if (data && data.length!=0) {
+<div>
+    <button (click)="addClick()">افزودن</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: right;">شناسه</th>
+            <th style="text-align: right;">عنوان</th>
+            <th style="text-align: right;">نویسنده</th>
+            <th style="text-align: right;">قیمت</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data; track $index) {
+
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.writer}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <button (click)="editClicK(item)">ویرایش</button>
+                <button (click)="Delete(item)">حذف</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
 }
 @else {
-    <form>
-        <div>
-            <input [(ngModel)]="entity.title" id="title" name="title" type="text"  placeholder="عنوان">
-        </div>
-        <div>
-            <input [(ngModel)]="entity.writer" id="writer" name="writer" type="text"  placeholder="نویسنده">
-        </div>
-        <div>
-            <input [(ngModel)]="entity.price"  id="price" name="price" type="text"  placeholder="قیمت">
-        </div>
-        <div>
-            <button (click)="ok()">تایید</button>
-            <button (click)="cancel()">انصراف</button>
-        </div>
-    </form>
+<form>
+    <div>
+        <input [(ngModel)]="entity.title" id="title" name="title" type="text" placeholder="عنوان">
+    </div>
+    <div>
+        <input [(ngModel)]="entity.writer" id="writer" name="writer" type="text" placeholder="نویسنده">
+    </div>
+    <div>
+        <input [(ngModel)]="entity.price" id="price" name="price" type="text" placeholder="قیمت">
+    </div>
+    <div>
+        <button (click)="ok()">تایید</button>
+        <button (click)="cancel()">انصراف</button>
+    </div>
+</form>
+}
+@if (action=='list'){
+
+@if (data && data.length==0) {
+<div>
+    <button (click)="addClick()">افزودن</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: right;">شناسه</th>
+            <th style="text-align: right;">عنوان</th>
+            <th style="text-align: right;">نویسنده</th>
+            <th style="text-align: right;">قیمت</th>
+        </tr>
+    </thead>
+
+</table>
+}
 }
