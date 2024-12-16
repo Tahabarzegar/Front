@@ -43,14 +43,16 @@ export class BooksComponent implements OnInit {
       this.http.post('http://localhost:5042/books/update', this.entity).subscribe(res => {
         this.action = 'list';
         this.refresh();
-        });
-  }
+      }
+      )
+    }
+
   }
   editClicK(item: any) {
     this.action = 'edit';
     this.entity = item;
     if (this.action == 'edit') {
-      this.http.post('http://localhost:5042/books/list', this.entity).subscribe(res => {
+      this.http.post('http://localhost:5042/books/add', this.entity).subscribe(res => {
         this.action = 'list';
         this.refresh();
       });

@@ -28,12 +28,18 @@ table th {
     color: white;
 }
 
-button {
-    background-color: darkgreen;
+/* button {
+    background-color: rgb(129, 255, 240);
     color: yellow;
     padding: 0.4em;
     outline: none;
     border: none;
     margin: 0.2em;
     font-size: x-large;
+    }
+     */
+
+#d1{
+    justify-content: center;
+
 }
